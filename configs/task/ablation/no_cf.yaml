@@ -1,0 +1,42 @@
+# @package _global_
+# Router trains on the action loss. Critic and KL stay off.
+defaults:
+- override /data: piper  # [Optional]: piper, flexiv
+- override /model: wan22  # [Optional]: wan22, lingbot_video
+- _self_
+train:
+  batch_size: 12
+  num_workers: 6
+  epochs: 15
+  learning_rate: 1e-4
+  weight_decay: 1e-2
+  save_every: 10000
+  eval_every: 200
+  save_training_state: true
+  stages:
+    enabled: true
+    unit: steps
+    stage1_ratio: 0.1
+    stage2_ratio: 0.9
+    stage3_ratio: 0.0
+    stage4_ratio: 0.0
+    stage5_ratio: 0.0
+model:
+  action_attention:
+    mode: logit_bias
+    bias_strength: 1.0
+  video:
+    cross_view_attention_interval: 2
+  action_scheduler:
+    train_shift: 1.0
+    infer_shift: 1.0
+  router:
+    enabled: true
+  critic:
+    enabled: false
+data:
+  roots:
+  - /path/to/dataset
+  text:
+    cache_dir: ./data/text_embeds_cache/dataset
+    encoder_id: wan22ti2v5b  # [Optional]: wan22ti2v5b, lingbotqwen3vl
