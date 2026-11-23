@@ -78,7 +78,26 @@ Run commands from the repository root. Configs and scripts are read from the che
 
 Save checkpoints under `./checkpoints`. Commands below use `hf download`; `modelscope download` takes the same arguments, with LingBot id `Robbyant/lingbot-video-dense-1.3b`. WAN files are read from `$FLEXWAM_MODEL_BASE_PATH/<repo id>/`. The default source is ModelScope. Set `DIFFSYNTH_DOWNLOAD_SOURCE=huggingface` to use Hugging Face. Text precompute downloads only when `FLEXWAM_SKIP_DOWNLOAD=false`.
 
-LingBot Video. The public tokenizer directory is `processor/`; the loader reads `tokenizer/`.
+WAN. The video DiT is Wan2.2-TI2V-5B (`diffusion_pytorch_model*.safetensors`). The VAE is Wan2.2 (`Wan2.2_VAE.safetensors`). Reproducing it also requires the UMT5 tokenizer (`google/umt5-xxl`) and the UMT5 text encoder (`models_t5_umt5-xxl-enc-bf16.safetensors`).
+
+```bash
+export FLEXWAM_MODEL_BASE_PATH="$PWD/checkpoints"
+export DIFFSYNTH_MODEL_BASE_PATH="$FLEXWAM_MODEL_BASE_PATH"
+hf download Wan-AI/Wan2.1-T2V-1.3B --include "google/umt5-xxl/*" \
+  --local-dir ./checkpoints/Wan-AI/Wan2.1-T2V-1.3B
+hf download Wan-AI/Wan2.2-TI2V-5B --include "diffusion_pytorch_model*.safetensors" \
+  --local-dir ./checkpoints/Wan-AI/Wan2.2-TI2V-5B
+hf download DiffSynth-Studio/Wan-Series-Converted-Safetensors \
+  --include "models_t5_umt5-xxl-enc-bf16.safetensors" \
+  --include "Wan2.2_VAE.safetensors" \
+  --local-dir ./checkpoints/DiffSynth-Studio/Wan-Series-Converted-Safetensors
+python scripts/preprocess/preprocess_wan_action_dit_backbone.py \
+  --model-config configs/model/wan22.yaml \
+  --output ./checkpoints/ActionDiT_linear_interp_Wan22_alphascale_1024hdim.pt
+export FLEXWAM_ACTION_DIT_PATH="$PWD/checkpoints/ActionDiT_linear_interp_Wan22_alphascale_1024hdim.pt"
+```
+
+LingBot Video. The video DiT is LingBot-Video (`transformer/`). The VAE is Wan2.1 (`vae/`). The checkpoint also includes the Qwen3VL text encoder (`text_encoder/`). The tokenizer directory is `processor/`; link it to `tokenizer/`.
 
 ```bash
 hf download robbyant/lingbot-video-dense-1.3b --local-dir ./checkpoints/lingbot-video
@@ -89,21 +108,6 @@ python scripts/preprocess/preprocess_lingbot_action_dit_backbone.py \
   --output ./checkpoints/lingbot-video/LingBotActionDiT_backbone_2048hdim.pt
 export FLEXWAM_LINGBOT_PATH="$PWD/checkpoints/lingbot-video"
 export FLEXWAM_ACTION_DIT_PATH="$FLEXWAM_LINGBOT_PATH/LingBotActionDiT_backbone_2048hdim.pt"
-```
-
-WAN. Wan2.1 supplies the UMT5 tokenizer (`google/umt5-xxl`). Wan2.2 supplies the video DiT. A missing T5 encoder or VAE is fetched on first load.
-
-```bash
-export FLEXWAM_MODEL_BASE_PATH="$PWD/checkpoints"
-export DIFFSYNTH_MODEL_BASE_PATH="$FLEXWAM_MODEL_BASE_PATH"
-hf download Wan-AI/Wan2.1-T2V-1.3B --include "google/umt5-xxl/*" \
-  --local-dir ./checkpoints/Wan-AI/Wan2.1-T2V-1.3B
-hf download Wan-AI/Wan2.2-TI2V-5B --include "diffusion_pytorch_model*.safetensors" \
-  --local-dir ./checkpoints/Wan-AI/Wan2.2-TI2V-5B
-python scripts/preprocess/preprocess_wan_action_dit_backbone.py \
-  --model-config configs/model/wan22.yaml \
-  --output ./checkpoints/ActionDiT_linear_interp_Wan22_alphascale_1024hdim.pt
-export FLEXWAM_ACTION_DIT_PATH="$PWD/checkpoints/ActionDiT_linear_interp_Wan22_alphascale_1024hdim.pt"
 ```
 
 ---
