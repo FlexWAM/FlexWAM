@@ -1,12 +1,36 @@
-# FlexWAM: Learning Flexible Visual Routing for World Action Models
+<div align="center">
+  <h1>FlexWAM: Learning Flexible Visual Routing for World Action Models</h1>
 
-Mingyu Mei<sup>1,\*</sup>, Haojie Xu<sup>1,\*</sup>, Zibo Dai<sup>1</sup>, Hongjie Fang<sup>2</sup>, Shirun Tang<sup>3</sup>, Zhengrui Lv<sup>1</sup>, Yang Liu<sup>4</sup>, Guang Chen<sup>1,5</sup>, Xingyue Zhao<sup>1</sup>, Huiliang Shen<sup>1</sup>, Zaixing He<sup>1,†</sup>
+  <p>
+    <a href="https://github.com/zming-Mei">Mingyu Mei</a><sup>1,*</sup>,
+    <a href="https://github.com/xuhaojie026">Haojie Xu</a><sup>1,*</sup>,
+    <a href="https://github.com/SelfGala">Zibo Dai</a><sup>1</sup>,
+    <a href="https://tonyfang.net/">Hongjie Fang</a><sup>2</sup>,
+    <a href="https://www.linkedin.com/in/shiruntang/">Shirun Tang</a><sup>3</sup>,
+    <a href="mailto:3240103193@zju.edu.cn">Zhengrui Lv</a><sup>1</sup>,
+    <a href="https://lamb97.github.io/">Yang Liu</a><sup>4</sup>,
+    <a href="mailto:icomputing@126.com">Guang Chen</a><sup>1,5</sup>,
+    <a href="mailto:zhaoxinyue@zju.edu.cn">Xingyue Zhao</a><sup>1</sup>,
+    <a href="https://person.zju.edu.cn/en/shenhl">Huiliang Shen</a><sup>1</sup>,
+    <a href="https://person.zju.edu.cn/en/zaixinghe">Zaixing He</a><sup>1,†</sup>
+  </p>
 
-<sup>1</sup>Zhejiang University &emsp; <sup>2</sup>Shanghai Jiao Tong University &emsp; <sup>3</sup>Noematrix &emsp; <sup>4</sup>University of Minnesota &emsp; <sup>5</sup>EndlessAI
+  <p>
+    <sup>1</sup>Zhejiang University &ensp;
+    <sup>2</sup>Shanghai Jiao Tong University &ensp;
+    <sup>3</sup>Noematrix &ensp;
+    <sup>4</sup>University of Minnesota &ensp;
+    <sup>5</sup>EndlessAI
+  </p>
 
-<sup>\*</sup>Equal contribution. &emsp; <sup>†</sup>Corresponding author.
+  <p><sup>*</sup>Equal contribution. &emsp; <sup>†</sup>Corresponding author.</p>
 
-[Paper](#citation) · [arXiv](#citation) · [Project Website](https://flexwam.github.io/)
+  <p>
+    <a href="#citation">Paper</a> ·
+    <a href="#citation">arXiv</a> ·
+    <a href="https://flexwam.github.io/">Project Website</a>
+  </p>
+</div>
 
 FlexWAM learns flexible visual routing for world action models. Alternating within-view and cross-view attention captures view-specific dynamics and complementary cues. An observation-conditioned view router, calibrated by a critic trained on counterfactual view credit, prioritizes the cameras most relevant to the current action.
 
