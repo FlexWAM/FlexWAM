@@ -26,9 +26,12 @@
   <p><sup>*</sup>Equal contribution. &emsp; <sup>†</sup>Corresponding author.</p>
 
   <p>
-    <a href="#citation">Paper</a> ·
-    <a href="#citation">arXiv</a> ·
-    <a href="https://flexwam.github.io/">Project Website</a>
+    <a href="#citation">
+      <img src="https://img.shields.io/badge/Paper-arXiv-b31b1b.svg" alt="Paper">
+    </a>
+    <a href="https://flexwam.github.io/">
+      <img src="https://img.shields.io/badge/Project-Website-blue.svg" alt="Project Website">
+    </a>
   </p>
 </div>
 
@@ -126,7 +129,7 @@ python scripts/train.py task=wan/piper_pencil_case --cfg job --resolve
 | `piper` | 14D dual-arm joint delta; grippers stay absolute | global, left wrist, right wrist |
 | `flexiv` | 10D pose6D delta | global, side, wrist |
 
-WAN and LingBot each have the same five tasks.
+To add a task config, copy one of the examples below. The same five tasks exist under `configs/task/wan/` and `configs/task/lingbot/`.
 
 | Task | Data |
 |---|---|
