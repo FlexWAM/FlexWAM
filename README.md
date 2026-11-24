@@ -26,7 +26,7 @@
   <p><sup>*</sup>Equal contribution. &emsp; <sup>†</sup>Corresponding author.</p>
 
   <p>
-    <a href="#citation">
+    <a href="https://arxiv.org/abs/2611.30024">
       <img src="https://img.shields.io/badge/Paper-arXiv-b31b1b.svg" alt="Paper">
     </a>
     <a href="https://flexwam.github.io/">
@@ -212,18 +212,16 @@ FlexWAM is released under the [Apache License 2.0](LICENSE). Copyright 2026 The 
 
 ## 📚 Citation
 
-arXiv: coming soon.
-
-<!-- Replace the eprint and url when the arXiv id is available. -->
+[arXiv:2611.30024](https://arxiv.org/abs/2611.30024)
 
 ```bibtex
 @misc{mei2026flexwam,
   title={FlexWAM: Learning Flexible Visual Routing for World Action Models},
   author={Mingyu Mei and Haojie Xu and Zibo Dai and Hongjie Fang and Shirun Tang and Zhengrui Lv and Yang Liu and Guang Chen and Xingyue Zhao and Huiliang Shen and Zaixing He},
   year={2026},
-  eprint={XXXX.XXXXX},
+  eprint={2611.30024},
   archivePrefix={arXiv},
   primaryClass={cs.RO},
-  url={https://arxiv.org/abs/XXXX.XXXXX},
+  url={https://arxiv.org/abs/2611.30024},
 }
 ```
